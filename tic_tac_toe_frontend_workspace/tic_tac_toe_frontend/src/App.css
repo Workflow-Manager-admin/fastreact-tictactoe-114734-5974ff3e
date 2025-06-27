@@ -1,14 +1,20 @@
 /* CSS Variables for Theme Management */
 :root {
-  /* Light theme colors */
+  /* Light theme colors and game palette */
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
   --text-primary: #282c34;
-  --text-secondary: #61dafb;
+  --text-secondary: #757575;
   --border-color: #e9ecef;
-  --button-bg: #007bff;
+  --button-bg: #1976d2;
   --button-text: #ffffff;
+
+  /* Game specific colors */
+  --primary-color: #1976d2;
+  --secondary-color: #ffffff;
+  --accent-color: #43a047;
 }
+
 
 [data-theme="dark"] {
   /* Dark theme colors */
@@ -82,6 +88,156 @@
 
 .theme-toggle:active {
   transform: translateY(0);
+}
+
+/**********************
+ * Tic Tac Toe styles *
+ **********************/
+
+.ttt-title {
+  margin: 0.25em 0 0.5em 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.ttt-statusbar {
+  color: var(--accent-color);
+  background: var(--secondary-color);
+  margin-bottom: 1em;
+  padding: 0.4em 1em;
+  font-size: 1.05rem;
+  font-weight: 500;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(67,160,71,0.06);
+  min-height: 2em;
+}
+
+.ttt-controls {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.ttt-btn {
+  background: var(--primary-color);
+  color: var(--button-text);
+  border: none;
+  font-size: 1rem;
+  padding: 0.55em 1.4em;
+  border-radius: 7px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.04);
+  outline: none;
+}
+.ttt-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.ttt-btn.accent {
+  background: var(--accent-color);
+}
+
+.ttt-game-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.2em;
+  margin-top: 1.2em;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .ttt-game-area {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7em;
+  }
+}
+
+/* Board */
+.ttt-board {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  background: var(--bg-primary);
+  border-radius: 1em;
+  box-shadow: 0 2px 8px rgba(25,118,210,0.05);
+  padding: 0.3em;
+}
+.ttt-row {
+  display: flex;
+}
+.ttt-cell {
+  width: 70px;
+  height: 70px;
+  font-size: 2.2rem;
+  font-family: inherit;
+  color: var(--primary-color);
+  background: var(--secondary-color);
+  border: 2.5px solid var(--primary-color);
+  margin: 0.18em;
+  padding: 0;
+  border-radius: 12px;
+  text-align: center;
+  transition: background 0.18s;
+  cursor: pointer;
+  outline: none;
+}
+.ttt-cell:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+@media (max-width: 480px) {
+  .ttt-cell {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+  }
+}
+
+/* Move History */
+.ttt-history {
+  width: 168px;
+  margin-left: 1em;
+  background: var(--bg-secondary);
+  border-radius: 10px;
+  padding: 0.7em;
+  box-shadow: 0 0.5px 2px rgba(25,118,210,0.045);
+  font-size: 0.98em;
+  color: var(--text-primary);
+}
+.ttt-history-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+  font-size: 1.13em;
+}
+.ttt-history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ttt-history-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  text-align: left;
+  font-size: 0.97em;
+  padding: 0.27em 0.5em;
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.13s;
+}
+.ttt-history-btn:hover,
+.ttt-history-btn:focus {
+  background: var(--accent-color);
+  color: #fff;
+  outline: none;
 }
 
 @keyframes App-logo-spin {
