@@ -1,0 +1,4 @@
+{
+    "command": "python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt",
+    "working_directory": "/home/kavia/workspace/code-generation/fastreact-tictactoe-114734-5974ff3e/tic_tac_toe_backend_workspace/tic_tac_toe_backend"
+}
